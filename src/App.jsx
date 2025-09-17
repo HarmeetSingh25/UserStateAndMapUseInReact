@@ -20,7 +20,9 @@ const App = () => {
     }
   ];
   const [Username, setUsername] = useState("Harry")
-
+  const [Name, setName] = useState("")
+  const [Age, setAge] = useState("")
+  console.log(Name, Age);
 
 
   let user = users.map((User, index) => {
@@ -36,19 +38,23 @@ const App = () => {
     )
   })
 
-  const ChngeName = () => {
-    setUsername("Harmeet")
-  }
-  
-  console.log(Username);
+  // const ChngeName = 
+
+  // console.log(Username);
   return (
     <div>
-
       <h1>Render Users</h1>
       <h3>{user}</h3>
       <h2>{Username}</h2>
-      <button onClick={ChngeName}>Click</button>
+      <button onSubmit={() => {setUsername("Harmeet")}}>Click</button>
 
+      <form onClick={(e) => { e.preventDefault() }}>
+
+        <input type="text" onChange={(e) => { setName(e.target.value) }} />
+        <input type="number" onChange={(e) => { setAge(e.target.value) }} />
+        <button>Submit</button>
+      </form>
+      <p>{Name}{Age}</p>
     </div>
   )
 }
